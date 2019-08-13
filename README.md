@@ -1,6 +1,6 @@
 # On the Convergence of AdaBound and its Connection to SGD
 
-Repository of the technical report "On the Convergence of AdaBound and its Connection to SGD", including the implementation for the proposed bias-corrected dampened form of momentum SGD (CSGD for short).
+Repository of the technical report "On the Convergence of AdaBound and its Connection to SGD" [[PDF](https://github.com/lolemacs/adabound-and-csgdm/raw/master/paper.pdf)], including the implementation for the proposed bias-corrected dampened form of momentum SGD (CSGD for short).
 
 [Pedro Savarese](https://ttic.uchicago.edu/~savarese)
 
