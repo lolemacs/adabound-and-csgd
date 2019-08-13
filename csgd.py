@@ -33,6 +33,8 @@ class CSGD(Optimizer):
                 if weight_decay != 0:
                     d_p.add_(weight_decay, p.data)
 
+                step_size = group['lr']
+                
                 if momentum != 0:
                     param_state = self.state[p]
                     if 'momentum_buffer' not in param_state:
@@ -44,8 +46,10 @@ class CSGD(Optimizer):
                     param_state['step'] += 1
                     buf.mul_(momentum).add_(1 - momentum, d_p)
                     d_p = buf
-                        
-                bias_correction = 1 - momentum ** param_state['step']
-                p.data.add_(-group['lr'] / bias_correction, d_p)
+                    
+                    bias_correction = 1 - momentum ** param_state['step']
+                    step_size = step_size / bias_correction
+
+                p.data.add_(-step_size, d_p)
 
         return loss
